@@ -1,0 +1,14 @@
+.img-product-page{
+    width: 100%;
+}
+
+.productPage-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 70%;
+    max-height: 50%;
+    min-height: 100vh;
+    align-items: center;
+    gap: 10px;
+    padding: 0.3rem;
+}
