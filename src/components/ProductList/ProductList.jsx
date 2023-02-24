@@ -6,16 +6,16 @@ import "./Product.css";
 
 export const ProductList = ({setCount, count, setCurrProduct}) => {
   return (
-    <div>
+    <div className="product-grid">
     {
     products.map((product) => {
         console.log(products)
-        return <ProductItem className="product-grid" product = {product} setCount = {setCount} count ={count} setCurrProduct = {setCurrProduct}/>;
+        return <ProductItem product = {product} setCount = {setCount} count ={count} setCurrProduct = {setCurrProduct}/>;
 
     })
 }
-    
+
     </div>
-    
+
 )
 }

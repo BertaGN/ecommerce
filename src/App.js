@@ -1,19 +1,23 @@
-import { useState } from "react";
-import "./App.css";
-import { Navbar } from "./components/Navbar/Navbar.jsx";
-import { ProductList } from "./components/ProductList/ProductList";
+import React from "react";
+import './App.css';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Home from './Pages/Home/Home';
+import ProductPage  from "./Pages/ProductPage/ProductPage";
+import { ProductProvider } from "./Context/ProductContext/ProductContext";
+// import Dashboard from './pages/Dashboard/Dashboard';
+// import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [currProduct, setCurrProduct] = useState("")
   return (
-    <div>
-      <Navbar />
-      <p>Contador:{count}</p>
-      <p>Currrent product: {currProduct}</p>
-      <ProductList setCount={setCount} count ={count} setCurrProduct={setCurrProduct}/>
-    </div>
+    <ProductProvider>
+    <BrowserRouter>
+      <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/product' element={<ProductPage />} />
+      </Routes>
+    </BrowserRouter>
+    </ProductProvider>
   );
 }
 

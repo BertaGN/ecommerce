@@ -1,0 +1,14 @@
+.card-item{
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    border-color: rgb(174, 148, 148);
+
+}
+
+.fixed-card{
+    position: fixed;
+    top: 15vh;
+    right: 50px;
+
+}
