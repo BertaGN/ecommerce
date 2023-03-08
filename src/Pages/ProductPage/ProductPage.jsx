@@ -5,22 +5,19 @@ import ProductContext from '../../Context/ProductContext/ProductContext';
 import "./ProductPage.css";
 
 
-function ProductPage ({setCount, count}) {
-  const {currentProduct} = useContext(ProductContext)
+function ProductPage () {
+  const {currentProduct, cart, setCart} = useContext(ProductContext)
   const {name, url, price} = currentProduct
     const navigate = useNavigate();
-    const addProduct = () => {
-      setCount( count +1)
-    }
-    
-    const dCount = () => {
-      if (count >0 ){
-        setCount ( count -1)
-      }}
       
     const clickHandler = () => {
         navigate('/', {replace: true});
     }
+
+    const addProduct = () => {
+     setCart([...cart, currentProduct])
+    }
+
   return (
     <div>
       <Navbar/>
@@ -31,7 +28,7 @@ function ProductPage ({setCount, count}) {
         <p>{price}</p>
     </div>
     <button onClick={addProduct}>Add</button>
-    <button onClick={dCount}>Remove</button>
+
     </div>
         <button onClick={clickHandler}>Back</button>	
     </div>

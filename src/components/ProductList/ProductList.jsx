@@ -4,13 +4,13 @@ import { products } from '../../data/data.js'
 import "./Product.css";
 
 
-export const ProductList = ({setCount, count, setCurrProduct}) => {
+export const ProductList = ({ setCurrProduct}) => {
   return (
     <div className="product-grid">
     {
     products.map((product) => {
         console.log(products)
-        return <ProductItem product = {product} setCount = {setCount} count ={count} setCurrProduct = {setCurrProduct}/>;
+        return <ProductItem product = {product} setCurrProduct = {setCurrProduct}/>;
 
     })
 }

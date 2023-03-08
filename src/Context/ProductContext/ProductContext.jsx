@@ -6,12 +6,15 @@ export const ProductContext = createContext(null);
 
 export const ProductProvider = ({ children }) => {
     const [currentProduct, setCurrentProduct] = useState(null)
+    const [cart, setCart] = useState([])
   
   return (
     <ProductContext.Provider
       value={{
         currentProduct,
-        setCurrentProduct
+        setCurrentProduct,
+        cart,
+        setCart
       }}
     >
       {children}
