@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const ProductItem = ({product}) => {
-  const {currentProduct, setCurrentProduct, cart, setCart } = useContext(ProductContext)
+  const {setCurrentProduct} = useContext(ProductContext)
   const {name, price, url} = product
   const navigate = useNavigate();
   
@@ -16,17 +16,14 @@ export const ProductItem = ({product}) => {
       setCurrentProduct(product)
       navigate('/product')
     }
-    const addProduct = () => {
-      setCart([...cart, product])
-    }
+  
 
   return (
     <Card>
-        <img className="img-grid" src = {url} alt =" " onClick={showProduct}></img>
+        <img className="img-grid" src = {url} alt =" "></img>
         <p>{name}</p>
         <p>{price}</p>
-        <button onClick={addProduct}>Add</button>
-        <button>Remove</button>
+        <button onClick={showProduct}>Detail Product</button>
     </Card>
   )
 }

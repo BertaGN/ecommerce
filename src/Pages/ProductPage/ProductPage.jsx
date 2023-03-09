@@ -21,16 +21,17 @@ function ProductPage () {
   return (
     <div>
       <Navbar/>
+        <button onClick={clickHandler}>Back</button>	
       <div className='productPage-grid'>
         <img className="img-product-page" src = {url} alt=""></img>
-    <div>
-        <p>{name}</p>
-        <p>{price}</p>
-    </div>
-    <button onClick={addProduct}>Add</button>
-
-    </div>
-        <button onClick={clickHandler}>Back</button>	
+        <div>
+          <p>{name}</p>
+         <p>{price}</p>
+        </div>
+       <div>
+         <button onClick={addProduct}>Add to cart</button>
+       </div>
+      </div>
     </div>
   )
 }

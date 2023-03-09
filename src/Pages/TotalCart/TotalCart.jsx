@@ -1,10 +1,17 @@
 import React, { useContext } from 'react'
 import ProductContext from '../../Context/ProductContext/ProductContext';
+import Navbar from '../../components/Navbar/Navbar';
 import "./TotalCart.css";
+import { useNavigate } from 'react-router-dom';
 
 export const TotalCart = () => {
     const { cart, setCart } = useContext(ProductContext)
     console.log(cart)
+    const navigate = useNavigate();
+      
+    const clickHandler = () => {
+        navigate('/product', {replace: true});
+    }
 
     const removeItem = (product) => {
         const notRemovedProducts = cart.filter((prd) => {
@@ -15,6 +22,8 @@ export const TotalCart = () => {
 
     return (
         <div>
+             <Navbar/>
+        <button onClick={clickHandler}>Back</button>	
             {
                 cart.map((product) => {
                     const { name, category, price, url } = product
