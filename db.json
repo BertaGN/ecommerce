@@ -1,22 +1,10 @@
 {
   "users": [
     {
-      "fullName": "miquel",
-      "email": "mikee@mag.com",
+      "fullName": "yno",
+      "email": "yno@yno.com",
       "password": "1234",
       "id": 1
-    },
-    {
-      "fullName": "miquel",
-      "email": "mikee@mag.com",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "fullName": "b",
-      "email": "b@g.com",
-      "password": "1234",
-      "id": 3
     }
   ]
 }

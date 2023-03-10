@@ -8,31 +8,39 @@ export const TotalCart = () => {
     const { cart, setCart } = useContext(ProductContext)
     console.log(cart)
     const navigate = useNavigate();
-      
+
     const clickHandler = () => {
-        navigate('/product', {replace: true});
+        navigate('/product', { replace: true });
     }
 
     const removeItem = (product) => {
-        const notRemovedProducts = cart.filter((prd) => {
-            return product.id !== prd.id
-        })
-        setCart(notRemovedProducts)
+        if (product.qty === 1) {
+            const notRemovedProducts = cart.filter((prd) => {
+                return product.id !== prd.id
+            })
+            setCart(notRemovedProducts)
+        } else {
+            const productsAfterRemove = cart.map((prd) => {
+                return product.id !== prd.id ? prd : { ...prd, qty: prd.qty - 1 }
+            })
+            setCart(productsAfterRemove)
+        }
     }
 
     return (
         <div>
-             <Navbar/>
-        <button onClick={clickHandler}>Back</button>	
+            <Navbar />
+            <button onClick={clickHandler}>Back</button>
             {
                 cart.map((product) => {
-                    const { name, category, price, url } = product
+                    const { name, category, price, url, qty } = product
                     return (
                         <div>
                             <p>{name}</p>
                             <p>{category}</p>
                             <p>{price}</p>
                             <img src={url} alt="" />
+                            <p>{qty}</p>
                             <button onClick={() => removeItem(product)}>Remove</button>
                         </div>
                     )

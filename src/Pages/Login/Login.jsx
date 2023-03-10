@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react'
 import UserContext from '../../Context/UserContext/UserContext'
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const Login = () => {
   const {setUser} = useContext(UserContext)
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -37,6 +39,7 @@ export const Login = () => {
       e.preventDefault()
       const res = await fetch (`http://localhost:3000/users?email=${loginData.email}&password=${loginData.password}`)
       const data = await res.json()
+      navigate('/TotalCart')
       if (data.length){
         setUser(data[0])
       } 
