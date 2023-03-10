@@ -5,6 +5,18 @@
       "email": "yno@yno.com",
       "password": "1234",
       "id": 1
+    },
+    {
+      "fullName": "m",
+      "email": "m@m.com",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "fullName": "b",
+      "email": "b@g.com",
+      "password": "1234",
+      "id": 3
     }
   ]
 }

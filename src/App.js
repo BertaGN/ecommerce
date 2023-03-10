@@ -8,6 +8,8 @@ import { TotalCart } from "./Pages/TotalCart/TotalCart";
 import { Login } from "./Pages/Login/Login";
 import { UserProvider } from "./Context/UserContext/UserContext";
 import About from "./Pages/About/About";
+import { ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
+
 // import Dashboard from './pages/Dashboard/Dashboard';
 // import NotFound from './pages/NotFound/NotFound';
 
@@ -21,8 +23,8 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path='/product' element={<ProductPage />} />
           <Route path='/contact' element={<About />} />
-          <Route path='/TotalCart' element={<TotalCart />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/TotalCart' element={<ProtectedRoute> <TotalCart /> </ProtectedRoute>} />
+          <Route path='/login' element={<Login/>} />
       </Routes>
     </BrowserRouter>
     </UserProvider>

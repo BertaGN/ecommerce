@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 export const Login = () => {
-  const {setUser} = useContext(UserContext)
+  const {setIsLogged} = useContext(UserContext)
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     email: "",
@@ -39,9 +39,9 @@ export const Login = () => {
       e.preventDefault()
       const res = await fetch (`http://localhost:3000/users?email=${loginData.email}&password=${loginData.password}`)
       const data = await res.json()
-      navigate('/TotalCart')
+      navigate('/')
       if (data.length){
-        setUser(data[0])
+        setIsLogged(true)
       } 
     }
 

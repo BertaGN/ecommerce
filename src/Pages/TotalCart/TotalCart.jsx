@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import "./TotalCart.css";
 import { useNavigate } from 'react-router-dom';
 
+
 export const TotalCart = () => {
     const { cart, setCart } = useContext(ProductContext)
     console.log(cart)
@@ -26,6 +27,9 @@ export const TotalCart = () => {
             setCart(productsAfterRemove)
         }
     }
+       const totalPrice = cart.reduce((acc, currProduct) => {
+        return acc + currProduct.price * currProduct.qty
+       },0)
 
     return (
         <div>
@@ -46,6 +50,7 @@ export const TotalCart = () => {
                     )
                 })
             }
+            <p>Total: {totalPrice}</p>
 
 
         </div>
